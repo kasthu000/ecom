@@ -1,0 +1,16 @@
+<!-- product_list.html -->
+
+{% extends "accounts/nav.html" %}
+    {%block content%}
+<h1 style="color:white;">Product List</h1>
+<a href="{% url 'product_create' %}">Add Product</a>
+<ul>
+    {% for product in products %}
+    <li>
+        <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+        <a href="{% url 'product_update' product.id %}">Edit</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{%endblock%}

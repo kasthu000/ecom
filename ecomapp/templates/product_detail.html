@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+   
+</head>
+<body>
+    <!--Product Section-->
+    <h2>Products</h2>
+    <div class="card">
+
+      {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Image for {{ product.name }}" width="100" height="100">
+
+        {% else %}
+            <p>No image uploaded</p>
+        {% endif %}
+      <h1>{{ product.name }}</h1>
+      <p class="price">{{product.price}}INR</p>
+      <p>{{product.discription}}</p>
+      <a href="{% url 'product_update' product.id %}"><p><button>Edit</button></p></a>
+      <a href="{% url 'product_list' %}"><p><button>Back to product list</button></p></a>
+      <a href="{% url 'product_delete' product.id %}"><p><button>Delete this product</button></p></a> 
+    </div>  
+</body>
+
+</html>
